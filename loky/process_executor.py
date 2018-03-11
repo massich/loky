@@ -972,6 +972,7 @@ class ProcessPoolExecutor(_base.Executor):
         self._call_queue = None
         self._result_queue = None
         self._processes.clear()
+        self._processes_management_lock = None
     shutdown.__doc__ = _base.Executor.shutdown.__doc__
 
 
