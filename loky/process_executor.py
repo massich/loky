@@ -120,7 +120,7 @@ class _ThreadWakeup:
         self._reader, self._writer = mp.Pipe(duplex=False)
 
     def wakeup(self):
-        if sys.platform == "win32" and sys.version_info[:2] < (3, 3):
+        if sys.platform == "win32" and sys.version_info[:2] < (3, 4):
             # Compat for python2.7 on windows, where poll return false for
             # b"" messages. Use the slightly larger message b"0".
             self._writer.send_bytes(b"0")
